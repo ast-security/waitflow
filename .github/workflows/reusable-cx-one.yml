@@ -1,0 +1,34 @@
+---
+name: Cx-One Application
+
+on:
+  workflow_dispatch:
+    inputs:
+      cx1_project_team_name:
+        description: 'Cx-One project team name'
+        required: true
+      cx1_repo_name:
+        description: 'Cx-One repository name'
+        required: true
+      cx1_aad_group_names:
+        description: 'Azure AD group to be used'
+        required: true
+jobs:
+  Checkmarx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+
+      - name: Verify CX1 project settings
+        env:
+            CX1_CLIENT_ID: ${{ secrets.CX1_APP_ID }}
+            CX1_CLIENT_SECRET: ${{ secrets.CX1_APP_SECRET }}
+            CX1_AAD_GROUP_TOKEN: ${{ secrets.CX1_AAD_GROUP_TOKEN }}
+            CX1_PROJECT_TEAM_NAME: ${{ inputs.cx1_project_team_name }}
+            CX1_REPO_NAME: ${{ inputs.cx1_repo_name }}
+            CX1_AAD_GROUP_NAMES: ${{ inputs.cx1_aad_group_names }}
+        run: |
+          env
+          python3 .github/scripts/cxappsprojsgrps.py
