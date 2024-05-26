@@ -130,13 +130,14 @@ class MakeApiCall:
                 print(
                         f"Hello, A")
                 response = requests.post(cx1_project_url, headers=headersAuth, json=project_data)
-                print(
-                        f"Hello, B")
+
                 if ( response.status_code == 200 or response.status_code == 201 ):
                     print("sucessfully fetched with parameters provided")
                 else:
                     print(
                         f"Hello, there's a {response.status_code} error with your request")
+                    print(
+                        f"Hello, B")
             else:
                 print(f"Project Name = {cx1_project_name}")
                 print(f"Project ID =  {cx1_project_id}")
