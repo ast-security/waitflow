@@ -46,6 +46,25 @@ class MakeApiCall:
                 f"Error: {response.text}")
             exit()
 
+    def translate_group_names(self, cx1_group_url, cx1_aad_group_names, my_access_token):
+        headers = {
+            "Authorization": f"Bearer {my_access_token}",
+            "Content-Type": "application/json"
+        }
+        response = requests.get(cx1_group_url, headers=headers)
+
+        groups_current = [item['name', item['id']] for item in json.loads(response.text)]
+        groups_param = cx1_aad_group_names.split(",")
+        global cx1_aad_group_ids
+        
+        for i in groups_param:
+            v_sign = 'N'
+            for v in groups_current:
+                if i.lower() == v[0].lower():
+                    v_sign = 'Y'
+                    cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
+                    print(cx1_aad_group_ids)
+			
     def check_groups(self, cx1_group_auth_url, cx1_group_url, cx1_aad_group_names):
         group_data = {
             'grant_type': 'refresh_token',
@@ -99,25 +118,6 @@ class MakeApiCall:
                     print(
                         f"Hello, there's a {response.status_code} error with your request")
         translate_group_names(cx1_group_url, cx1_aad_group_names, my_access_token)
-
-    def translate_group_names(self, cx1_group_url, cx1_aad_group_names, my_access_token):
-        headers = {
-            "Authorization": f"Bearer {my_access_token}",
-            "Content-Type": "application/json"
-        }
-        response = requests.get(cx1_group_url, headers=headers)
-
-        groups_current = [item['name', item['id']] for item in json.loads(response.text)]
-        groups_param = cx1_aad_group_names.split(",")
-        global cx1_aad_group_ids
-        
-        for i in groups_param:
-            v_sign = 'N'
-            for v in groups_current:
-                if i.lower() == v[0].lower():
-                    v_sign = 'Y'
-                    cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
-                    print(cx1_aad_group_ids)
 
 	
     def check_projects(self, cx1_project_url, cx1_project_name, headersAuth):
