@@ -72,9 +72,6 @@ class MakeApiCall:
 
             if v_sign == 'Y':
                 print(i)
-                global cx1_aad_group_ids
-                cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group['id'] )
-                print(cx1_aad_group_ids)
             else: 
                 group_data = {
                     'name': i,
@@ -86,8 +83,6 @@ class MakeApiCall:
                 for group in groups:
                     if group['name'] == i:
                         group_id = group['id']
-                        cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group['id'] )
-                        print(cx1_aad_group_ids)
                         break
                 role_endpoint = f"{cx1_group_url}/{group_id}/role-mappings/clients/76da925a-4689-4aac-bb6c-01e66e2e4bf5"
                 role_data = [{
@@ -103,8 +98,28 @@ class MakeApiCall:
                 else:
                     print(
                         f"Hello, there's a {response.status_code} error with your request")
+		translate_group_names(cx1_group_url, cx1_aad_group_names, my_access_token)
 
+    def translate_group_names(self, cx1_group_url, cx1_aad_group_names, my_access_token):
+        headers = {
+            "Authorization": f"Bearer {my_access_token}",
+            "Content-Type": "application/json"
+        }
+        response = requests.get(cx1_group_url, headers=headers)
 
+        groups_current = [item['name', item['id']] for item in json.loads(response.text)]
+        groups_param = cx1_aad_group_names.split(",")
+        global cx1_aad_group_ids
+        
+	for i in groups_param:
+            v_sign = 'N'
+            for v in groups_current:
+                if i.lower() == v[0].lower():
+                    v_sign = 'Y'
+                    cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
+                    print(cx1_aad_group_ids)
+
+	
     def check_projects(self, cx1_project_url, cx1_project_name, headersAuth):
         response = requests.get(cx1_project_url, headers=headersAuth)
         if response.status_code == 200:
