@@ -98,7 +98,7 @@ class MakeApiCall:
                 else:
                     print(
                         f"Hello, there's a {response.status_code} error with your request")
-		translate_group_names(cx1_group_url, cx1_aad_group_names, my_access_token)
+        translate_group_names(cx1_group_url, cx1_aad_group_names, my_access_token)
 
     def translate_group_names(self, cx1_group_url, cx1_aad_group_names, my_access_token):
         headers = {
