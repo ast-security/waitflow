@@ -119,7 +119,7 @@ class MakeApiCall:
                 print(f"project {cx1_project_name} not found")
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : ["6422d16f-8e05-41e4-862c-0d918cd9904b"],
+                    'groups' : [ cx1_aad_group_names.split(",") ],
                     'criticality' : 4,
                     'privatePackage' : 0,
                     'tags' : {
