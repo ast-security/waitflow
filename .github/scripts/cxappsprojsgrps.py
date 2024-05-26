@@ -117,15 +117,6 @@ class MakeApiCall:
             
             if cx1_project_id == "":
                 print(f"project {cx1_project_name} not found")
-                project_data = {
-                    'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_names.split(",") ],
-                    'criticality' : 4,
-                    'privatePackage' : 0,
-                    'tags' : {
-                        'priority' : 'high'
-                    }
-                }
 
                 project_data = {
                     'name' : cx1_project_name,
@@ -133,8 +124,8 @@ class MakeApiCall:
                     'criticality' : 4,
                     'repoUrl' : '',
                     'mainBranch' : '',
-		            'origin' : '',
-		            'CorrelationId' : '',
+		    'origin' : '',
+		    'CorrelationId' : '',
                     'tags' : {
                         'priority' : 'high'
                     }
