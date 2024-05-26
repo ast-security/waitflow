@@ -111,7 +111,7 @@ class MakeApiCall:
         groups_param = cx1_aad_group_names.split(",")
         global cx1_aad_group_ids
         
-	for i in groups_param:
+        for i in groups_param:
             v_sign = 'N'
             for v in groups_current:
                 if i.lower() == v[0].lower():
