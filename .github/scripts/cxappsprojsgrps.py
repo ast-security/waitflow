@@ -72,6 +72,9 @@ class MakeApiCall:
 
             if v_sign == 'Y':
                 print(i)
+                global cx1_aad_group_ids
+                cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group['id'] )
+                print(cx1_aad_group_ids)
             else: 
                 group_data = {
                     'name': i,
@@ -84,7 +87,7 @@ class MakeApiCall:
                     if group['name'] == i:
                         group_id = group['id']
                         global cx1_aad_group_ids
-                        cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group_id )
+                        cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group['id'] )
                         print(cx1_aad_group_ids)
                         break
                 role_endpoint = f"{cx1_group_url}/{group_id}/role-mappings/clients/76da925a-4689-4aac-bb6c-01e66e2e4bf5"
