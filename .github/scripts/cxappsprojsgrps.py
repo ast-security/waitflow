@@ -126,6 +126,20 @@ class MakeApiCall:
                         'priority' : 'high'
                     }
                 }
+
+                project_data = {
+                    'name' : cx1_project_name,
+                    'groups' : [ cx1_aad_group_names.split(",") ],
+                    'criticality' : 4,
+                    'repoUrl' : '',
+                    'mainBranch' : '',
+		            'origin' : '',
+		            'CorrelationId' : '',
+                    'tags' : {
+                        'priority' : 'high'
+                    }
+                }
+
                 print(
                         f"Hello, A")
                 response = requests.post(cx1_project_url, headers=headersAuth, json=project_data)
@@ -290,7 +304,8 @@ class MakeApiCall:
         print(
                         f"Hello, 4")
         headersAuth = {
-                'accept': 'application/json; version=1.1',
+                'Accept': 'application/json; version=1.0',
+		        'Content-Type: application/json; version=1.1',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
         print(cx1_access_token)
