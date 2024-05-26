@@ -121,7 +121,7 @@ class MakeApiCall:
                     'name' : cx1_project_name,
                     'groups' : [ cx1_aad_group_names.split(",") ],
                     'criticality' : 4,
-                    'privatePackage' : false,
+                    'privatePackage' : 0,
                     'tags' : {
                         'priority' : 'high'
                     }
