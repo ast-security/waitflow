@@ -16,7 +16,7 @@ cx1_application_id = ''
 cx1_project_name = os.environ['CX1_REPO_NAME']
 cx1_project_id = ''
 cx1_aad_group_names = os.environ['CX1_AAD_GROUP_NAMES']
-cx1_aad_group_ids = []
+cx1_aad_group_ids = os.environ['CX1_AAD_GROUP_NAMES']
 cx1_aad_group_token = os.environ['CX1_AAD_GROUP_TOKEN']
 cx1_access_token = ''
 
@@ -83,6 +83,7 @@ class MakeApiCall:
                 for group in groups:
                     if group['name'] == i:
                         group_id = group['id']
+			global cx1_aad_group_ids = cx1_aad_group_ids.replace(group['name'],group['id'])
                         break
                 role_endpoint = f"{cx1_group_url}/{group_id}/role-mappings/clients/76da925a-4689-4aac-bb6c-01e66e2e4bf5"
                 role_data = [{
@@ -120,12 +121,8 @@ class MakeApiCall:
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_names.split(",") ],
+                    'groups' : [ cx1_aad_group_ids.split(",") ],
                     'criticality' : 4,
-                    'repoUrl' : '',
-                    'mainBranch' : '',
-		    'origin' : '',
-		    'CorrelationId' : '',
                     'tags' : {
                         'priority' : 'high'
                     }
