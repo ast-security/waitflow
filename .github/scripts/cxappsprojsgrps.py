@@ -274,15 +274,24 @@ class MakeApiCall:
                 'grant_type' : 'client_credentials',
                 'client_secret' : cx1_client_secret,
         }
+        print(
+                        f"Hello, 1")
         self.formatted_variables()
+        print(
+                        f"Hello, 2")
         self.get_access_token(api, cx1_api_auth_info, cx1_api_header)
+        print(
+                        f"Hello, 3")
         self.check_groups(cx1_group_auth_url, cx1_group_url, cx1_aad_group_names)
-
+        print(
+                        f"Hello, 4")
         headersAuth = {
                 'accept': 'application/json; version=1.0',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
         self.check_projects(cx1_project_url, cx1_project_name, headersAuth)
+        print(
+                        f"Hello, 5")
         self.check_applications(cx1_application_url, cx1_application_name, headersAuth)
 
 if __name__ == "__main__":
