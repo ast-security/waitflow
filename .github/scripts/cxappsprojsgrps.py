@@ -308,6 +308,11 @@ class MakeApiCall:
 		'Content-Type' : 'application/json; version=1.0',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
+	if ( str(cx1_access_token) == '' ):
+                print("Good Token")
+        else:
+                print("Bad Token")
+		
         print(cx1_access_token)
         self.check_projects(cx1_project_url, cx1_project_name, headersAuth)
         print(
