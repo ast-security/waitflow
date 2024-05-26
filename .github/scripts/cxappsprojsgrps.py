@@ -121,8 +121,6 @@ class MakeApiCall:
                     'name' : cx1_project_name,
                     'groups' : [ cx1_aad_group_names.split(",") ],
                     'criticality' : 4,
-                    'repoUrl': '',
-                    'mainBranch' : '',
                     'tags' : {
                         'priority' : 'high'
                     }
