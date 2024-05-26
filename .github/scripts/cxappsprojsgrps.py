@@ -289,6 +289,8 @@ class MakeApiCall:
                 'accept': 'application/json; version=1.0',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
+        print(
+                        f"Hello, str(cx1_access_token)")
         self.check_projects(cx1_project_url, cx1_project_name, headersAuth)
         print(
                         f"Hello, 5")
