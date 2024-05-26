@@ -86,7 +86,6 @@ class MakeApiCall:
                 for group in groups:
                     if group['name'] == i:
                         group_id = group['id']
-                        global cx1_aad_group_ids
                         cx1_aad_group_ids = cx1_aad_group_ids.replace( i, group['id'] )
                         print(cx1_aad_group_ids)
                         break
