@@ -141,7 +141,7 @@ class MakeApiCall:
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_ids ],
+                    'groups' : [ cx1_aad_group_ids.split(",") ],
                     'repoUrl' : '',
                     'mainBranch' : '',
                     'origin' : '',
@@ -182,7 +182,7 @@ class MakeApiCall:
                         'name' : proj_name,
                         'createdAt' : proj_createdAt,
                         'updatedAt' : proj_updatedAt,
-                        'groups' : [ cx1_aad_group_ids ],
+                        'groups' : [ cx1_aad_group_ids.split(",") ],
                         'criticality' : proj_criticality,
                         'repoUrl': proj_repoUrl,
                         'mainBranch' : proj_mainBranch,
