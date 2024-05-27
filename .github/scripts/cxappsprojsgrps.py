@@ -67,7 +67,7 @@ class MakeApiCall:
                     cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
                     print(cx1_aad_group_ids)
 
-        cx1_aad_group_ids = cx1_aad_group_ids.replace( "%2C" , "'%2C'" )
+        #cx1_aad_group_ids = cx1_aad_group_ids.replace( "%2C" , "'%2C'" )
         #values = cx1_aad_group_ids.split(',')
         #quoted_values = ['"{}"'.format(value) for value in values]
         #cx1_aad_group_ids = ','.join(quoted_values)
@@ -150,7 +150,7 @@ class MakeApiCall:
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_ids ],
+                    'groups' : [ cx1_aad_group_ids.split(',') ],
                     'repoUrl' : '',
                     'mainBranch' : '',
                     'origin' : '',
@@ -193,7 +193,7 @@ class MakeApiCall:
                         'name' : proj_name,
                         'createdAt' : proj_createdAt,
                         'updatedAt' : proj_updatedAt,
-                        'groups' : [ (cx1_aad_group_ids) ],
+                        'groups' : [ cx1_aad_group_ids.split(',') ],
                         'criticality' : proj_criticality,
                         'repoUrl': proj_repoUrl,
                         'mainBranch' : proj_mainBranch,
