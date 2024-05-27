@@ -149,6 +149,7 @@ class MakeApiCall:
 
                 print(
                         f"Hello, A")
+                print(cx1_aad_group_ids)
                 response = requests.post(cx1_project_url, headers=headersAuth, json=project_data)
 
                 if ( response.status_code == 200 or response.status_code == 201 ):
