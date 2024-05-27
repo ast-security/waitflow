@@ -53,7 +53,7 @@ class MakeApiCall:
         }
         response = requests.get(cx1_group_url, headers=headers)
 
-        groups_current = [item['name'], item['id']] for item in json.loads(response.text)]
+        groups_current = [(item['name'], item['id']) for item in json.loads(response.text)]
         groups_param = cx1_aad_group_names.split(",")
         global cx1_aad_group_ids
         
