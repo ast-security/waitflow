@@ -198,6 +198,7 @@ class MakeApiCall:
                         'tags' : proj_tags,
                         'applicationIds' : proj_applicationIds
                     }
+                    print(project_data)
                     response = requests.put(cx1_project_url_ext, headers=headersAuth, data=json.dumps(project_data))
                     if ( response.status_code == 200 or response.status_code == 204 ):
                         print("sucessfully fetched with parameters provided")
