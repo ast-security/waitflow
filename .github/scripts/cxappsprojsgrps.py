@@ -1,6 +1,7 @@
 import requests
 import os
 import json
+import uuid
 
 cx1_tenant_name = 'mskcc'
 cx1_base_url = 'https://ast.checkmarx.net/'
