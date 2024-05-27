@@ -311,7 +311,6 @@ class MakeApiCall:
                         f"Hello, 4")
         headersAuth = {
                 'Accept': 'application/json; version=1.0',
-		'Content-Type' : 'application/json; version=1.0',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
 		
