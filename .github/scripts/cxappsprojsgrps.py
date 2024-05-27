@@ -144,14 +144,9 @@ class MakeApiCall:
                     'repoUrl' : '',
                     'mainBranch' : '',
                     'origin' : '',
-                    'tags' : {
-                        'demoTag' : ''
-                    },
                     'criticality' : 4
 		}
 
-                print(
-                        f"Hello, A")
                 print(cx1_aad_group_ids)
                 response = requests.post(cx1_project_url, headers=headersAuth, data=json.dumps(project_data))
 
@@ -160,8 +155,6 @@ class MakeApiCall:
                 else:
                     print(
                         f"Hello, there's a {response.status_code} error with your request")
-                    print(
-                        f"Hello, B")
                     print(
                         f"Error: {response.text}")
             else:
@@ -188,7 +181,7 @@ class MakeApiCall:
                         'name' : proj_name,
                         'createdAt' : proj_createdAt,
                         'updatedAt' : proj_updatedAt,
-                        'groups' : [cx1_aad_group_ids.split(",")],
+                        'groups' : [ cx1_aad_group_ids ],
                         'criticality' : proj_criticality,
                         'repoUrl': proj_repoUrl,
                         'mainBranch' : proj_mainBranch,
@@ -305,17 +298,11 @@ class MakeApiCall:
                 'grant_type' : 'client_credentials',
                 'client_secret' : cx1_client_secret,
         }
-        print(
-                        f"Hello, 1")
+
         self.formatted_variables()
-        print(
-                        f"Hello, 2")
         self.get_access_token(api, cx1_api_auth_info, cx1_api_header)
-        print(
-                        f"Hello, 3")
         self.check_groups(cx1_group_auth_url, cx1_group_url, cx1_aad_group_names)
-        print(
-                        f"Hello, 4")
+
         headersAuth = {
                 'Accept': 'application/json; version=1.0',
                 'Content-Type': 'application/json; version=1.0',
@@ -325,8 +312,7 @@ class MakeApiCall:
 		
         print(cx1_access_token)
         self.check_projects(cx1_project_url, cx1_project_name, headersAuth)
-        print(
-                        f"Hello, 5")
+
         self.check_applications(cx1_application_url, cx1_application_name, headersAuth)
 
 if __name__ == "__main__":
