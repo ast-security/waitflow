@@ -310,7 +310,6 @@ class MakeApiCall:
                 'Authorization': 'Bearer '+ str(cx1_access_token)
         }
 		
-        print(cx1_access_token)
         self.check_projects(cx1_project_url, cx1_project_name, headersAuth)
 
         self.check_applications(cx1_application_url, cx1_application_name, headersAuth)
