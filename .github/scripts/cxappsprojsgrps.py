@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import uuid
+import urllib.parse
 
 cx1_tenant_name = 'mskcc'
 cx1_base_url = 'https://ast.checkmarx.net/'
@@ -65,7 +66,8 @@ class MakeApiCall:
                     v_sign = 'Y'
                     cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
                     print(cx1_aad_group_ids)
-			
+
+        cx1_aad_group_ids = cx1_aad_group_ids.replace( "%2C" , "'%2C'" )
         #values = cx1_aad_group_ids.split(',')
         #quoted_values = ['"{}"'.format(value) for value in values]
         #cx1_aad_group_ids = ','.join(quoted_values)
