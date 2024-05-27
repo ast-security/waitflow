@@ -161,6 +161,8 @@ class MakeApiCall:
                         f"Hello, there's a {response.status_code} error with your request")
                     print(
                         f"Hello, B")
+                    print(
+                        f"Error: {response.text}")
             else:
                 print(f"Project Name = {cx1_project_name}")
                 print(f"Project ID =  {cx1_project_id}")
