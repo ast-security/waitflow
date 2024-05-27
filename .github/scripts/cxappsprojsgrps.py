@@ -141,12 +141,19 @@ class MakeApiCall:
                 project_data = {
                     'name' : cx1_project_name,
                     'groups' : [ cx1_aad_group_ids.split(",") ]
-                }
+                    'repoUrl' : '',
+                    'mainBranch' : '',
+                    'origin' : '',
+                    'tags' : {
+                        'demoTag' : ''
+                    },
+                    'criticality' : 4
+		}
 
                 print(
                         f"Hello, A")
                 print(cx1_aad_group_ids)
-                response = requests.post(cx1_project_url, headers=headersAuth, json=project_data)
+                response = requests.post(cx1_project_url, headers=headersAuth, data=json.dumps(project_data))
 
                 if ( response.status_code == 200 or response.status_code == 201 ):
                     print("sucessfully fetched with parameters provided")
@@ -311,7 +318,9 @@ class MakeApiCall:
                         f"Hello, 4")
         headersAuth = {
                 'Accept': 'application/json; version=1.0',
-                'Authorization': 'Bearer '+ str(cx1_access_token),
+                'Content-Type': 'application/json; version=1.0',
+                'CorrelationId': '',
+                'Authorization': 'Bearer '+ str(cx1_access_token)
         }
 		
         print(cx1_access_token)
