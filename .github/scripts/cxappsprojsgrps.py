@@ -156,6 +156,7 @@ class MakeApiCall:
 		}
 
                 print(cx1_aad_group_ids)
+                print(project_data)
              #   response = requests.post(cx1_project_url, headers=headersAuth, data=json.dumps(project_data))
                 response = requests.post(cx1_project_url, headers=headersAuth, json=(project_data))
 
