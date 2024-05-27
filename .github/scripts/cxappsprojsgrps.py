@@ -140,13 +140,7 @@ class MakeApiCall:
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_ids.split(",") ],
-                    'criticality' : 4,
-                    'repoUrl': '',
-                    'mainBranch' : '',
-                    'tags' : {
-                        'priority' : 'high'
-                    }
+                    'groups' : [ cx1_aad_group_ids.split(",") ]
                 }
 
                 print(
@@ -318,7 +312,6 @@ class MakeApiCall:
         headersAuth = {
                 'Accept': 'application/json; version=1.0',
 		'Content-Type' : 'application/json; version=1.0',
-                'CorrelationId' : '',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
 		
