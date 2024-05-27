@@ -140,13 +140,15 @@ class MakeApiCall:
                 if project_name.lower() == cx1_project_name.lower():
                     global cx1_project_id
                     cx1_project_id = project_id
-            
+
+            print(cx1_aad_group_ids)
+		
             if cx1_project_id == "":
                 print(f"project {cx1_project_name} not found")
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_ids.split(",") ],
+                    'groups' : [ cx1_aad_group_ids ],
                     'repoUrl' : '',
                     'mainBranch' : '',
                     'origin' : '',
@@ -187,7 +189,7 @@ class MakeApiCall:
                         'name' : proj_name,
                         'createdAt' : proj_createdAt,
                         'updatedAt' : proj_updatedAt,
-                        'groups' : [ cx1_aad_group_ids.split(",") ],
+                        'groups' : [ cx1_aad_group_ids ],
                         'criticality' : proj_criticality,
                         'repoUrl': proj_repoUrl,
                         'mainBranch' : proj_mainBranch,
