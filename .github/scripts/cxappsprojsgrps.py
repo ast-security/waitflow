@@ -58,7 +58,7 @@ class MakeApiCall:
         groups_current = [(item['name'], item['id']) for item in json.loads(response.text)]
         groups_param = cx1_aad_group_names.split(",")
         global cx1_aad_group_ids
-        
+        cx1_aad_group_ids = cx1_aad_group_ids.strip()
         for i in groups_param:
             v_sign = 'N'
             for v in groups_current:
@@ -89,6 +89,8 @@ class MakeApiCall:
         response = requests.get(cx1_group_url, headers=headers)
 
         groups_current = [item['name'] for item in json.loads(response.text)]
+        global cx1_aad_group_names
+        cx1_aad_group_names = cx1_aad_group_names.strip()
         groups_param = cx1_aad_group_names.split(",")
 
         for i in groups_param:
