@@ -191,7 +191,7 @@ class MakeApiCall:
                         'name' : proj_name,
                         'createdAt' : proj_createdAt,
                         'updatedAt' : proj_updatedAt,
-                        'groups' : [ cx1_aad_group_ids ],
+                        'groups' : [ (cx1_aad_group_ids) ],
                         'criticality' : proj_criticality,
                         'repoUrl': proj_repoUrl,
                         'mainBranch' : proj_mainBranch,
