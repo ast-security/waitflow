@@ -17,8 +17,8 @@ cx1_application_name = os.environ['CX1_PROJECT_TEAM_NAME']
 cx1_application_id = ''
 cx1_project_name = os.environ['CX1_REPO_NAME']
 cx1_project_id = ''
-cx1_aad_group_names = os.environ['CX1_AAD_GROUP_NAMES']
-cx1_aad_group_ids = os.environ['CX1_AAD_GROUP_NAMES']
+cx1_aad_group_names = os.environ['CX1_AAD_GROUP_NAMES'].strip()
+cx1_aad_group_ids = os.environ['CX1_AAD_GROUP_NAMES'].strip()
 cx1_aad_group_token = os.environ['CX1_AAD_GROUP_TOKEN']
 cx1_access_token = ''
 
@@ -58,7 +58,7 @@ class MakeApiCall:
         groups_current = [(item['name'], item['id']) for item in json.loads(response.text)]
         groups_param = cx1_aad_group_names.split(",")
         global cx1_aad_group_ids
-        cx1_aad_group_ids = cx1_aad_group_ids.strip()
+
         for i in groups_param:
             v_sign = 'N'
             for v in groups_current:
@@ -89,8 +89,7 @@ class MakeApiCall:
         response = requests.get(cx1_group_url, headers=headers)
 
         groups_current = [item['name'] for item in json.loads(response.text)]
-        global cx1_aad_group_names
-        cx1_aad_group_names = cx1_aad_group_names.strip()
+	    
         groups_param = cx1_aad_group_names.split(",")
 
         for i in groups_param:
