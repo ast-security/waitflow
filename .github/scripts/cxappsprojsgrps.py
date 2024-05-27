@@ -66,6 +66,11 @@ class MakeApiCall:
                     cx1_aad_group_ids = cx1_aad_group_ids.replace( i, v[1] )
                     print(cx1_aad_group_ids)
 			
+        values = cx1_aad_group_ids.split(',')
+        quoted_values = ['"{}"'.format(value) for value in values]
+        cx1_aad_group_ids = ','.join(quoted_values)
+
+
     def check_groups(self, cx1_group_auth_url, cx1_group_url, cx1_aad_group_names):
         group_data = {
             'grant_type': 'refresh_token',
