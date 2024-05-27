@@ -140,7 +140,7 @@ class MakeApiCall:
 
                 project_data = {
                     'name' : cx1_project_name,
-                    'groups' : [ cx1_aad_group_ids.split(",") ],
+                    'groups' : [ cx1_aad_group_ids ],
                     'repoUrl' : '',
                     'mainBranch' : '',
                     'origin' : '',
