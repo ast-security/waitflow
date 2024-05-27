@@ -157,8 +157,8 @@ class MakeApiCall:
 
                 print(cx1_aad_group_ids)
                 print(project_data)
-             #   response = requests.post(cx1_project_url, headers=headersAuth, data=json.dumps(project_data))
-                response = requests.post(cx1_project_url, headers=headersAuth, json=(project_data))
+                response = requests.post(cx1_project_url, headers=headersAuth, data=json.dumps(project_data))
+          #      response = requests.post(cx1_project_url, headers=headersAuth, json=(project_data))
 
                 if ( response.status_code == 200 or response.status_code == 201 ):
                     print("sucessfully fetched with parameters provided")
@@ -198,7 +198,7 @@ class MakeApiCall:
                         'tags' : proj_tags,
                         'applicationIds' : proj_applicationIds
                     }
-                    response = requests.put(cx1_project_url_ext, headers=headersAuth, json=project_data)
+                    response = requests.put(cx1_project_url_ext, headers=headersAuth, data=json.dumps(project_data))
                     if ( response.status_code == 200 or response.status_code == 204 ):
                         print("sucessfully fetched with parameters provided")
                     else:
