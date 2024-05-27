@@ -316,8 +316,9 @@ class MakeApiCall:
         print(
                         f"Hello, 4")
         headersAuth = {
-                'Accept': 'application/json; version=1.1',
+                'Accept': 'application/json; version=1.0',
 		'Content-Type' : 'application/json; version=1.0',
+                'CorrelationId: ',
                 'Authorization': 'Bearer '+ str(cx1_access_token),
         }
 		
